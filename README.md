@@ -33,8 +33,18 @@ Ensure you have the following installed:
    ```bash
    pip install -r requirements.txt
    ```
-4. Create a `.env` file for storing API keys and credentials securely. Refer to `.env.example` for required variables.
-5. Run the AI agent:
+4. **Download Google Service Account JSON and Set Permissions:**
+   - Go to **Google Cloud Console**: https://console.cloud.google.com/
+   - Navigate to **IAM & Admin > Service Accounts**.
+   - Select your project and create a new service account.
+   - Assign **Editor** and **Calendar API permissions** to the service account.
+   - Generate a **JSON key file** and download it.
+   - Move this file to your project directory and set its path in the `.env` file.
+   - **Provide access to the client email in the JSON file** by sharing calendar access with this email.
+   - Enable **Google Calendar API** in the Google Cloud Console to allow scheduling functionality.
+
+5. Create a `.env` file for storing API keys and credentials securely. Refer to `.env.example` for required variables.
+6. Run the AI agent:
    ```bash
    python agent.py
    ```
@@ -43,8 +53,8 @@ Ensure you have the following installed:
 ## Environment Variables
 Create a `.env` file and define the following variables:
 ```
-GOOGLE_API_KEY = "your_google_api_key_here"
-GOOGLE_SERVICE_ACCOUNT_JSON = "path_to_your_service_account.json"
+GOOGLE_API_KEY=your_google_api_key_here
+GOOGLE_SERVICE_ACCOUNT_JSON=path_to_your_service_account.json
 ```
 **Note:** Never share your actual `.env` file in public repositories.
 
@@ -110,9 +120,8 @@ GOOGLE_SERVICE_ACCOUNT_JSON = "path_to_your_service_account.json"
 ## Running Tests
 To test the AI agent, run:
 ```bash
-python new_agent_final.py
+python agent.py
 ```
 It will prompt the user to choose an action and respond accordingly.
 
----
 
