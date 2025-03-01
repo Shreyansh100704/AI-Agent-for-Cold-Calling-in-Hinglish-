@@ -20,8 +20,8 @@ Ensure you have the following installed:
 ### 2. Installation Steps
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/Shreyansh100704/AI-Agent-for-Cold-Calling-in-Hinglish-.git
+   cd AI-Agent-for-Cold-Calling-in-Hinglish-
    ```
 2. Create and activate a virtual environment:
    ```bash
