@@ -37,23 +37,23 @@ pygame.mixer.init()
 
 # Hinglish Greetings
 OPENING_GREETINGS = [
-    "Namaste! Main iMax Global Ventures ka AI agent hoon. Main aapki madad ke liye yahan hoon. Kripya ek vikalp chuney:\n"
+    "Namaste! Main iMax Global Ventures ki AI agent hoon. Main aapki madad ke liye yahan hoon. Kripya ek vikalp chuney:\n"
     "1. ERP system ka demo schedule karna hai.\n"
     "2. Kisi candidate ka interview lena hai.\n"
     "3. Payment/order ka status check karna hai ya sabhi pending payments ke liye reminder email bhejni hai.",
     
     
-    "Namaskar! Main iMax Global Ventures ka AI agent hoon. Aapke call ka maksad kya hai? Kripya ek vikalp chuney:\n"
+    "Namaskar! Main iMax Global Ventures ki AI agent hoon. Aapke call ka maksad kya hai? Kripya ek vikalp chuney:\n"
     "1. ERP demo schedule karna hai.\n"
     "2. Kisi candidate ka interview lena hai.\n"
     "3. Payment/order status check karna hai ya pending payments ke liye email bhejni hai.",
 
-    "Hello, Main iMax Global Ventures ka AI agent hoon. Main aapki kis tarah se madad kar sakta hoon? Kripya ek vikalp chuney:\n"
+    "Hello, Main iMax Global Ventures ki AI agent hoon. Main aapki kis tarah se madad kar sakti hoon? Kripya ek vikalp chuney:\n"
     "1. ERP system ka demo schedule karna hai.\n"
     "2. Kisi candidate ka interview lena hai.\n"
     "3. Payment/order ka status dekhna hai ya sabhi pending payments ko email bhejna hai.",
 
-    "Hii, Main iMax Global Ventures ka AI agent hoon. Aap kis madad ke liye yahan hain? Kripya ek vikalp chuney:\n"
+    "Hii, Main iMax Global Ventures ki AI agent hoon. Aap kis madad ke liye yahan hain? Kripya ek vikalp chuney:\n"
     "1. ERP demo ke liye slot book karna hai.\n"
     "2. Kisi candidate ka interview lena hai.\n"
     "3. Payment/order status check karna hai ya sabhi pending payments ka reminder bhejna hai."
@@ -95,7 +95,7 @@ def recognize_speech():
             recognizer.adjust_for_ambient_noise(source, duration=1)
             
             try:
-                audio = recognizer.listen(source, timeout=5, phrase_time_limit=10)
+                audio = recognizer.listen(source, timeout=5, phrase_time_limit=15)
                 text = recognizer.recognize_google(audio, language="hi-En")
                 hinglish_text = GoogleTranslator(source='auto', target='en').translate(text)
                 print(f"User: {hinglish_text}")
@@ -107,7 +107,7 @@ def recognize_speech():
 
             except sr.UnknownValueError:
                 print("Could not understand audio. Restarting listening...")
-                speak("Maaf kijiye, main samajh nahi paaya. Kripya phir se kahe.")
+                speak("Maaf kijiye, main samajh nahi paayi. Kripya phir se kahe.")
             except sr.RequestError:
                 print("Speech recognition request failed. Check internet connection.")
                 speak("Speech recognition service unavailable. Kripya apne internet connection ka pata karein.")
@@ -145,11 +145,11 @@ def conduct_interview():
         return
 
     # Extract role from user input
-    role = user_input.split()[-3:]  # Extract last two words as role
+    role = user_input.split()[-3:]  # Extract last three words as role
     role = " ".join(role)  # Convert list to string
 
     # Start AI-led interview
-    speak(f"Main {role} ke liye interview shuru kar raha hoon. Aap jab chahein 'exit' bolkar interview khatam kar sakte hain.")
+    speak(f"Main {role} ke liye interview shuru kar rahi hoon. Aap jab chahein 'exit' bolkar interview khatam kar sakte hain.")
 
     while True:
         # AI generates a domain-specific simple question
@@ -393,7 +393,7 @@ def cold_call_agent():
         elif "demo" in user_input or "demonstration" in user_input or "product" in user_input:
             schedule_demo()
         else:
-            speak("Kripya spasht bataye ki aap kis vishay par madad chahte hain: Payment status, Interview, ya Product Demo?")
+            speak("Kripya spasht bataye ki aap kis vishay par madad chahte hain: Payment status, Interview, ya Product Demonstration?")
     
 
 if __name__ == "__main__":
